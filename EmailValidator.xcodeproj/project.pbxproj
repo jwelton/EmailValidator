@@ -11,6 +11,8 @@
 		231F31852025F68F008F187C /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231F31842025F68F008F187C /* URLTests.swift */; };
 		231F31862025F68F008F187C /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231F31842025F68F008F187C /* URLTests.swift */; };
 		231F31872025F68F008F187C /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231F31842025F68F008F187C /* URLTests.swift */; };
+		231F31C720260010008F187C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231F31822025F323008F187C /* URL.swift */; };
+		231F31C820260010008F187C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231F31822025F323008F187C /* URL.swift */; };
 		52D6D9871BEFF229002C0205 /* EmailValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* EmailValidator.framework */; };
 		8933C7851EB5B820000D00A4 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* EmailValidator.swift */; };
 		8933C7861EB5B820000D00A4 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* EmailValidator.swift */; };
@@ -484,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C7881EB5B820000D00A4 /* EmailValidator.swift in Sources */,
+				231F31C820260010008F187C /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8933C7861EB5B820000D00A4 /* EmailValidator.swift in Sources */,
+				231F31C720260010008F187C /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
