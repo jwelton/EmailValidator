@@ -11,39 +11,39 @@ import XCTest
 import EmailValidator
 
 class EmailValidatorTests: XCTestCase {
-    private var validator: EmailValidator!
+    private var emailValidator: EmailValidator!
 
     override func setUp() {
         validator = EmailValidator()
     }
 
     func testEmailValidator_WithEmptyString_ReturnsInvalid() {
-        let result = validator.validate("")
+        let result = emailValidator.validate("")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithNoAtSymbol_ReturnsInvalid() {
-        let result = validator.validate("testexample.com")
+        let result = emailValidator.validate("testexample.com")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithNoDomain_ReturnsInvalid() {
-        let result = validator.validate("text@example")
+        let result = emailValidator.validate("text@example")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithNoComponents_ReturnsInvalid() {
-        let result = validator.validate("textexample")
+        let result = emailValidator.validate("textexample")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithMultipleValidEmails_ReturnsInvalid() {
-        let result = validator.validate("test1@example.com text2@example.com")
+        let result = emailValidator.validate("test1@example.com text2@example.com")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithValidEmail_ReturnsValid() {
-        let result = validator.validate("text@example.com")
+        let result = emailValidator.validate("text@example.com")
         XCTAssertEqual(result, .valid)
     }
 }
