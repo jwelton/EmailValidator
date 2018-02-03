@@ -1,5 +1,9 @@
 language: swift
 osx_image: xcode9.2
+notifications:
+  email:
+    on_success: never
+    on_failure: always
 script:
   - set -o pipefail
   - fastlane lint
