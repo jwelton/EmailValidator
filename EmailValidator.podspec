@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "EmailValidator"
   s.version      = "0.1"
-  s.summary      = ""
+  s.summary      = "Lightweight email validation without regular expressions"
   s.description  = <<-DESC
-    Your description here.
+    Lightweight email validation for iOS, macOS and tvOS without regular expressions
   DESC
-  s.homepage     = "https://github.com/jwelton/EmailValidator"
+  s.homepage     = "http://github.com/jwelton/EmailValidator"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Jake Welton" => "jwelton122@googlemail.com" }
   s.social_media_url   = ""
