@@ -14,7 +14,7 @@ class EmailValidatorTests: XCTestCase {
     private var emailValidator: EmailValidator!
 
     override func setUp() {
-        validator = EmailValidator()
+        emailValidator = EmailValidator()
     }
 
     func testEmailValidator_WithEmptyString_ReturnsInvalid() {
