@@ -1,0 +1,27 @@
+desc "Run SwiftLint on the project"
+lane :lint do
+	swiftlint(strict: true)
+end
+
+desc "Run unit tests for iOS, OSX and tvOS"
+lane :test do
+	# Run macOS tests
+	scan(
+		scheme: "EmailValidator-macOS",
+		clean: true
+	)
+
+	# Run iOS tests
+	scan(
+		scheme: "EmailValidator-iOS", 
+		devices: ["iPhone 8", "iPad Air 2"],
+		clean: true
+	)
+
+	# tvOS tests
+	scan(
+		scheme: "EmailValidator-tvOS",
+		devices: ["Apple TV", "Apple TV 4K"],
+		clean: true
+	)
+end
