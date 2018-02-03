@@ -28,22 +28,22 @@ class EmailValidatorTests: XCTestCase {
     }
 
     func testEmailValidator_WithNoDomain_ReturnsInvalid() {
-        let result = emailValidator.validate("text@example")
+        let result = emailValidator.validate("test@example")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithNoComponents_ReturnsInvalid() {
-        let result = emailValidator.validate("textexample")
+        let result = emailValidator.validate("testexample")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithMultipleValidEmails_ReturnsInvalid() {
-        let result = emailValidator.validate("test1@example.com text2@example.com")
+        let result = emailValidator.validate("test1@example.com test2@example.com")
         XCTAssertEqual(result, .invalid)
     }
 
     func testEmailValidator_WithValidEmail_ReturnsValid() {
-        let result = emailValidator.validate("text@example.com")
+        let result = emailValidator.validate("test@example.com")
         XCTAssertEqual(result, .valid)
     }
 }
