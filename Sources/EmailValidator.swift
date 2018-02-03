@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+open class EmailValidator {
+    public enum Result {
+        case valid
+        case invalid
+    }
+
+    open func performValidation(onEmail email: String) -> Result {
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+            let matches = detector.matches(in: email, options: [], range: NSRange(location: 0, length: email.count))
+            let mailToUrls = matches.flatMap { $0.url }.filter { $0.containsScheme(.mailto) }
+            return mailToUrls.count == 1 ? .valid : .invalid
+        } catch {
+            return .invalid
+        }
+    }
+}
