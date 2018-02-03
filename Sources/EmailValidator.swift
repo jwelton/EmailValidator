@@ -23,8 +23,10 @@ public class EmailValidator {
     public func validate(_ email: String) -> Result {
         let range = NSRange(location: 0, length: email.count)
 
-        guard let matchUrl = emailDetector?.firstMatch(in: email, range: range)?.url else {
-            return .invalid
+        guard let matches = emailDetector?.matches(in: email, range: range),
+            matches.count == 1,
+            let matchUrl = matches.first?.url else {
+                return .invalid
         }
 
         return matchUrl.containsScheme(.mailto) ? .valid : .invalid
