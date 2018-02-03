@@ -17,7 +17,6 @@ class EmailValidatorTests: XCTestCase {
         emailValidator = EmailValidator()
     }
 
-    // MARK: Standard Unit Tests
     func testEmailValidator_WithEmptyString_ReturnsInvalid() {
         let result = emailValidator.validate("")
         XCTAssertEqual(result, .invalid)
