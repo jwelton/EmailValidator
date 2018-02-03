@@ -14,7 +14,7 @@ lane :test do
 	# Run iOS tests
 	scan(
 		scheme: "EmailValidator-iOS", 
-		devices: ["iPhone 8", "iPad Pro"],
+		devices: ["iPhone 8", "iPad Air 2"],
 		clean: true
 	)
 
