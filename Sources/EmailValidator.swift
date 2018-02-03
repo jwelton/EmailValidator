@@ -9,6 +9,10 @@
 import Foundation
 
 public class EmailValidator {
+    private lazy var emailDetector: NSDataDetector? = {
+        return try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+    }()
+
     public enum Result {
         case valid
         case invalid
@@ -17,13 +21,12 @@ public class EmailValidator {
     public init() { }
 
     public func validate(_ email: String) -> Result {
-        do {
-            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-            let matches = detector.matches(in: email, options: [], range: NSRange(location: 0, length: email.count))
-            let mailToUrls = matches.flatMap { $0.url }.filter { $0.containsScheme(.mailto) }
-            return mailToUrls.count == 1 ? .valid : .invalid
-        } catch {
+        let range = NSRange(location: 0, length: email.count)
+
+        guard let matchUrl = emailDetector?.firstMatch(in: email, range: range)?.url else {
             return .invalid
         }
+
+        return matchUrl.containsScheme(.mailto) ? .valid : .invalid
     }
 }
