@@ -11,13 +11,39 @@ import XCTest
 import EmailValidator
 
 class EmailValidatorTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        //// XCTAssertEqual(EmailValidator().text, "Hello, World!")
+    private var emailValidator: EmailValidator!
+
+    override func setUp() {
+        emailValidator = EmailValidator()
     }
 
-    static var allTests = [
-        ("testExample", testExample)
-    ]
+    func testEmailValidator_WithEmptyString_ReturnsInvalid() {
+        let result = emailValidator.validate("")
+        XCTAssertEqual(result, .invalid)
+    }
+
+    func testEmailValidator_WithNoAtSymbol_ReturnsInvalid() {
+        let result = emailValidator.validate("testexample.com")
+        XCTAssertEqual(result, .invalid)
+    }
+
+    func testEmailValidator_WithNoDomain_ReturnsInvalid() {
+        let result = emailValidator.validate("test@example")
+        XCTAssertEqual(result, .invalid)
+    }
+
+    func testEmailValidator_WithNoComponents_ReturnsInvalid() {
+        let result = emailValidator.validate("testexample")
+        XCTAssertEqual(result, .invalid)
+    }
+
+    func testEmailValidator_WithMultipleValidEmails_ReturnsInvalid() {
+        let result = emailValidator.validate("test1@example.com test2@example.com")
+        XCTAssertEqual(result, .invalid)
+    }
+
+    func testEmailValidator_WithValidEmail_ReturnsValid() {
+        let result = emailValidator.validate("test@example.com")
+        XCTAssertEqual(result, .valid)
+    }
 }
